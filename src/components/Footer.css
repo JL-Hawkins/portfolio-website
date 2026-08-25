@@ -1,0 +1,30 @@
+.footer {
+    margin-top: 5rem;
+    padding: 2.5rem 2rem;
+
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.footer-name {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-weight: 600;
+}
+
+.footer-tech {
+    margin-top: 0.5rem;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.95rem;
+}

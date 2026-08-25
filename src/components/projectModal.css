@@ -1,0 +1,728 @@
+/* ==========================================================
+   Modal Overlay
+   ========================================================== */
+
+.project-modal-overlay {
+    animation: modal-overlay-fade 180ms ease-out;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    overflow: hidden;
+
+    background-color: rgba(15, 23, 42, 0.65);
+}
+
+/* ==========================================================
+   Modal Window
+   ========================================================== */
+
+.project-modal {
+    animation: modal-enter 180ms ease-out;
+
+    position: relative;
+
+    width: min(800px, calc(100vw - 4rem));
+    max-height: calc(100vh - 4rem);
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+
+    padding: 2rem 3rem 3rem;
+
+    background: white;
+    border-radius: 16px;
+
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+}
+
+/* ==========================================================
+   Header
+   ========================================================== */
+
+.project-modal-header {
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+    padding-bottom: 0.75rem;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.project-modal-header .project-modal-title {
+    max-width: 900px;
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+
+    color: var(--color-text);
+}
+
+.project-modal-organization {
+    margin: 0.75rem 0 0;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    color: var(--color-text);
+}
+
+.project-modal-subtitle {
+    margin: 0;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+
+    color: var(--color-text-light);
+}
+
+/* ==========================================================
+   Close Button
+   ========================================================== */
+
+.project-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+.project-modal-close:hover {
+    background-color: rgba(15, 23, 42, 0.08);
+    transform: scale(1.04);
+}
+
+.project-modal-close:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================
+   Modal Sections
+   ========================================================== */
+
+.project-modal-section {
+    margin-top: 2.5rem;
+}
+
+.project-modal-section:first-of-type {
+    margin-top: 0;
+}
+
+.project-modal-section-title {
+    margin: 0 0 1rem;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: var(--color-text);
+}
+
+/* ==========================================================
+   Hero Image
+   ========================================================== */
+
+.project-modal-hero {
+    display: flex;
+    justify-content: center;
+
+    max-width: 400px;
+    margin: 2rem auto 2.5rem;
+    padding: 1rem;
+
+    background: var(--color-background);
+
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.project-modal-hero-image {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+/* ==========================================================
+   Overview / Project Sections
+   ========================================================== */
+
+.project-modal-overview {
+    width: 100%;
+    margin: 0;
+
+    line-height: 1.75;
+
+    color: var(--color-text);
+}
+
+.project-section + .project-section {
+    margin-top: 2rem;
+}
+
+.project-section-title {
+    margin: 0 0 0.5rem;
+
+    color: rgba(76, 163, 255, 0.7);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-section-text {
+    margin: 0;
+
+    color: var(--color-text);
+
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.project-section-text p {
+    margin: 0;
+}
+
+.project-section-text p + p {
+    margin-top: 1rem;
+}
+
+/* ==========================================================
+   Video Link
+   ========================================================== */
+
+.project-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    margin-top: 0.5rem;
+    padding: 0.7rem 1rem;
+
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.project-video-link:hover {
+    background: rgba(76, 163, 255, 0.08);
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.project-video-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.project-video-credit {
+    display: inline-block;
+
+    margin-left: 0.6rem;
+
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================
+   Skills
+   ========================================================== */
+
+.project-modal-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-modal-skill {
+    padding: 0.5rem 0.9rem;
+
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    color: var(--color-text);
+}
+
+/* ==========================================================
+   Gallery
+   ========================================================== */
+
+.project-modal-image-button {
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    border: none;
+    border-radius: 12px;
+
+    background: none;
+
+    cursor: zoom-in;
+}
+
+.project-modal-image-button:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+.project-modal-image {
+    display: block;
+
+    width: 100%;
+    height: clamp(320px, 45vw, 520px);
+
+    object-fit: contain;
+
+    background: var(--color-background);
+
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.project-modal-caption {
+    margin: 0.75rem 0 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+
+    color: var(--color-text-light);
+}
+
+/* ==========================================================
+   Gallery Thumbnails
+   ========================================================== */
+
+.project-modal-thumbnails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    margin-top: 1rem;
+}
+
+.project-modal-thumbnail-button {
+    padding: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: none;
+
+    cursor: pointer;
+}
+
+.project-modal-thumbnail-button:focus-visible {
+    outline: none;
+}
+
+.project-modal-thumbnail {
+    display: block;
+
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.project-modal-thumbnail-button:hover
+    .project-modal-thumbnail {
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+}
+
+.project-modal-thumbnail-button:focus-visible
+    .project-modal-thumbnail {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}
+
+.project-modal-thumbnail-active {
+    border: 3px solid #64748b;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   Image Lightbox
+   ========================================================== */
+
+.project-image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+
+    background: rgba(15, 23, 42, 0.92);
+}
+
+.project-image-lightbox-image {
+    display: block;
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    background: white;
+    border-radius: 8px;
+
+    cursor: default;
+}
+
+.project-image-lightbox-close {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+    font-family: inherit;
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition: background-color 180ms ease;
+}
+
+.project-image-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.project-image-lightbox-close:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   Project Resources
+   ========================================================== */
+
+.project-resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.project-resource-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    width: min(420px, 100%);
+
+    padding: 0.85rem 1rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+
+    color: var(--color-text);
+    text-decoration: none;
+
+    transition:
+        border-color 160ms ease,
+        transform 160ms ease,
+        background-color 160ms ease;
+}
+
+.project-resource-link:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.project-resource-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   Accessibility
+   ========================================================== */
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+
+    border: 0;
+}
+
+/* ==========================================================
+   Large Screens
+   ========================================================== */
+
+@media (min-width: 1450px) {
+    .project-modal {
+        width: min(1100px, calc(100vw - 8rem));
+        max-height: calc(100vh - 5rem);
+
+        padding: 2.5rem 4rem 4rem;
+    }
+
+    .project-modal-title {
+        max-width: 1050px;
+    }
+
+    .project-modal-image {
+        height: min(560px, 55vh);
+    }
+}
+
+/* ==========================================================
+   Medium Screens
+   ========================================================== */
+
+@media (max-width: 1000px) {
+    .project-modal {
+        width: min(850px, calc(100vw - 3rem));
+        max-height: calc(100vh - 3rem);
+
+        padding: 2.5rem;
+    }
+
+    .project-modal-title {
+        font-size: clamp(2.25rem, 6vw, 3.25rem);
+    }
+}
+
+/* ==========================================================
+   Small Screens
+   ========================================================== */
+
+@media (max-width: 768px) {
+    .project-modal-overlay {
+        align-items: flex-start;
+
+        padding: 1rem;
+    }
+
+    .project-modal {
+        width: 100%;
+        max-height: calc(100vh - 2rem);
+
+        padding: 2rem 1.5rem;
+
+        border-radius: 12px;
+    }
+
+    .project-modal-header {
+        padding-right: 2.5rem;
+    }
+
+    .project-modal-title {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+
+    .project-modal-close {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .project-modal-hero {
+        max-width: 100%;
+    }
+
+    .project-modal-hero-image {
+        height: 230px;
+    }
+
+    .project-modal-image {
+        height: 280px;
+    }
+
+    .project-video-credit {
+        display: block;
+        margin-top: 0.5rem;
+        margin-left: 0;
+    }
+
+    .project-resource-link {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* ==========================================================
+   Very Small Screens
+   ========================================================== */
+
+@media (max-width: 480px) {
+    .project-modal-overlay {
+        padding: 0.5rem;
+    }
+
+    .project-modal {
+        max-height: calc(100vh - 1rem);
+
+        padding: 1.75rem 1rem;
+    }
+
+    .project-modal-hero-image {
+        height: 200px;
+    }
+
+    .project-modal-image {
+        height: 230px;
+    }
+
+    .project-modal-thumbnail {
+        width: 68px;
+        height: 68px;
+    }
+
+    .project-video-link {
+        width: 100%;
+        justify-content: center;
+
+        text-align: center;
+    }
+}
+
+/* ==========================================================
+   Animation
+   ========================================================== */
+
+@keyframes modal-overlay-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modal-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================================
+   Reduced Motion
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-modal-overlay,
+    .project-modal {
+        animation: none;
+    }
+
+    .project-modal-close,
+    .project-modal-thumbnail,
+    .project-resource-link,
+    .project-video-link,
+    .project-image-lightbox-close {
+        transition: none;
+    }
+}
