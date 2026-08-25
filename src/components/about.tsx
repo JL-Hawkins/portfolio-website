@@ -79,7 +79,7 @@ function About() {
         <div className="about-photo-container">
           <img
             className="about-photo"
-            src="/profile-photo.jpg"
+            src={`${import.meta.env.BASE_URL}profile-photo.jpg`}
             alt="Professional portrait of Jennifer Hawkins"
           />
         </div>
